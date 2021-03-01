@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	string s1, s2;
+	cin >> s1 >> s2;
+	transform(s1.begin(), s1.end(), s1.begin(), ::tolower);
+	transform(s2.begin(), s2.end(), s2.begin(), ::tolower);
+	set<string> lexi;
+	lexi.insert(s1);
+	lexi.insert(s2);
+	if (s1 == s2) {
+		cout << "0" << "\n";
+		return 0;
+	}
+	if (*lexi.begin()==s1) {
+		cout << "-1" << "\n";
+	}
+	else {
+		cout << "1" << "\n";
+	}
+	return 0;
+}
