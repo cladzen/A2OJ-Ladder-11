@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+#define pb push_back
+using namespace std;
+
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	long long n, k;
+	cin >> n >> k;
+	long long even = 1;
+	long long odd = 1;
+	if (n%2==0) {
+		if (k>(n/2)) {
+			long long kp = k-(n/2);
+			cout << 2+(kp-1)*2 << "\n";
+		}
+		else {
+			cout << 1+(k-1)*2 << "\n";
+		}
+	}
+	else {
+		if (k>(n/2)+1) {
+			long long kp = k-(n/2)-1;
+			cout << 2+(kp-1)*2 << "\n";
+		}
+		else {
+			cout << 1+(k-1)*2 << "\n";
+		}
+	}
+	return 0;
+}
