@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	string sc;
+	string guest;
+	string pile;
+	cin >> sc >> guest >> pile;
+	map<char, vector<int>> mp;
+	for (char c : sc) {
+		mp[c].push_back(1);
+	}
+	for (char c : guest) {
+		mp[c].push_back(1);
+	}
+	for (char c : pile) {
+		mp[c].pop_back();
+	}
+	int flag = 1;
+	map<char, vector<int>>::iterator it;
+	for (it=mp.begin(); it!=mp.end(); it++) {
+		if ((it->second).size()!=0) {
+			flag = 0;
+			break;
+		}
+	}
+	if (flag==0) {
+		cout << "NO" << "\n";
+	}
+	else {
+		cout << "YES" << "\n";
+	}
+	return 0;
+}
