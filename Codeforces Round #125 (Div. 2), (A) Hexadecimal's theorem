@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+#define pb push_back
+using namespace std;
+
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	int n;
+	cin >> n;
+	cout << 0 << " " << 0 << " " << n << "\n";
+	return 0;
+}
