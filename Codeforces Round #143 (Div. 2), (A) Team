@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	int n;
+	cin >> n;
+	map<int, vector<int>> mp;
+	for (int i=0; i<n; i++) {
+		for (int j=0; j<3; j++) {
+			int temp;
+			cin >> temp;
+			if (temp==1) {
+				mp[i].push_back(1);
+			}
+		}
+	} 
+	map<int, vector<int>>::iterator it;
+	int count = 0;
+	for (it=mp.begin(); it!=mp.end(); it++) {
+		if ((it->second).size()>=2) {
+			count++;
+		}
+	}
+	cout << count << "\n";
+	return 0;
+}
