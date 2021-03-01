@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	int n, k, l, c, d, p, nl, np;
+	cin >> n >> k >> l >> c >> d >> p >> nl >> np;
+	int drinkt = k*l/nl;
+	int limet = c*d;
+	int saltt = p/np;
+	vector<int> toasts;
+	toasts.push_back(drinkt);
+	toasts.push_back(limet);
+	toasts.push_back(saltt);
+	int maxtoasts = *min_element(toasts.begin(), toasts.end());
+	cout << maxtoasts/n << "\n";
+	return 0;
+}
