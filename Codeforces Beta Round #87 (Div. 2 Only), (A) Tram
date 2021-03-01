@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	int n;
+	cin >> n;
+	int cap = 0;
+	int onboard = 0;
+	for (int i=0; i<n; i++) {
+		int entry, exit;
+		cin >> exit >> entry;
+		onboard -= exit;
+		onboard += entry;
+		if (onboard>=cap) {
+			cap = onboard;
+		}
+	}
+	cout << cap << "\n";
+	return 0;
+}
