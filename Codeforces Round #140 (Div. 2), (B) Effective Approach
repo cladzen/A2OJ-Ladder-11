@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	int n;
+	cin >> n;
+	unordered_map<int, int> arr;
+	for (int i=0; i<n; i++) {
+		int temp;
+		cin >> temp;
+		arr.insert(make_pair(temp, i));
+	}
+	int m;
+	cin >> m;
+	long long pcount = 0;
+	long long vcount = 0;
+	for (int i=0; i<m; i++) {
+		int temp; 
+		cin >> temp;
+		int index = arr[temp];
+		vcount += (index+1);
+		pcount += (n-index-1);
+	}
+	cout << vcount << " " << pcount+m << "\n";
+	return 0;
+}
