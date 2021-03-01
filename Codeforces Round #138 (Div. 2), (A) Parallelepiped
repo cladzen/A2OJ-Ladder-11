@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	int x, y, z;
+	cin >> x >> y >> z;
+	int a, b, c;
+	a = sqrtl((long long)x*y*z)/y;
+	b = sqrtl((long long)x*y*z)/z;
+	c = sqrtl((long long)x*y*z)/x;
+	int sum = 4*(a+b+c);
+	cout << sum << "\n";
+	return 0;
+}
