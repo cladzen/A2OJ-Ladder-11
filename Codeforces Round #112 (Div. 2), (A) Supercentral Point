@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int n;
+	cin >> n;
+	vector<pair<int, int>> points;
+	for (int i=0; i<n; i++) {
+		int x, y;
+		cin >> x >> y;
+		points.push_back(make_pair(x, y));
+	}
+	int counter = 0;
+	for (auto point1: points) {
+		set<string> s;
+		for (auto point2: points) {
+			if (point1.first==point2.first and point1.second<point2.second) {
+				s.insert("greater");
+			}
+			else if (point1.first==point2.first and point1.second>point2.second) {
+				s.insert("lower");
+			}
+			else if (point1.first>point2.first and point1.second==point2.second) {
+				s.insert("left");
+			}
+			else if (point1.first<point2.first and point1.second==point2.second) {
+				s.insert("right");
+			}
+			if(s.size()==4) {
+				counter++;
+				break;
+			}
+		}
+	}
+	cout << counter << "\n";
+	return 0;
+}
