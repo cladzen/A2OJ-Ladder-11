@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+bool checkDistinct(int year) {
+	int _year = year;
+	int digits[4];
+	int i = 0;
+	while (_year>0) { 
+		digits[i++] = _year%10;
+		_year = _year/10;
+	}
+	for (int j=0; j<3; j++) {
+		for (int k=j+1; k<4; k++) {
+			if (digits[j]==digits[k]) {
+				return false;
+			}
+		}
+	}
+	return true;
+}
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	int year;
+	cin >> year;
+	int y = year+1;
+	while (true) {
+		if (checkDistinct(y)) {
+			break;
+		}
+		else {
+			y++;
+		}
+	}
+	cout << y << "\n";
+	return 0;
+}
