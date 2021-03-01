@@ -1,0 +1,72 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	int lights[3][3] = {1, 1, 1, 1, 1, 1, 1, 1, 1};
+	int toggle[3][3];
+	for (int x=0; x<3; x++) {
+		for (int y=0; y<3; y++) {
+			cin >> toggle[x][y];
+			if (toggle[x][y]%2!=0) {
+				//if even, leave the side adjacent lights as it is
+				//if odd, toggle the current and all the side adjacent lights
+				lights[x][y] = lights[x][y]==1?0:1;
+				if (x==0 and y==0) {
+					lights[x+1][y] = lights[x+1][y]==1?0:1;
+					lights[x][y+1] = lights[x][y+1]==1?0:1;
+				}
+				else if (x==0 and y==2) {
+					lights[x][y-1] = lights[x][y-1]==1?0:1;
+					lights[x+1][y] = lights[x+1][y]==1?0:1;
+				}
+				else if (x==2 and y==0) {
+					lights[x-1][y] = lights[x-1][y]==1?0:1;
+					lights[x][y+1] = lights[x][y+1]==1?0:1;
+				}
+				else if (x==2 and y==2) {
+					lights[x-1][y] = lights[x-1][y]==1?0:1;
+					lights[x][y-1] = lights[x][y-1]==1?0:1;
+				}
+				else if (x==0 and y==1) {
+					lights[x+1][y] = lights[x+1][y]==1?0:1;
+					lights[x][y-1] = lights[x][y-1]==1?0:1;
+					lights[x][y+1] = lights[x][y+1]==1?0:1;
+				}
+				else if (x==1 and y==0) {
+					lights[x][y+1] = lights[x][y+1]==1?0:1;
+					lights[x-1][y] = lights[x-1][y]==1?0:1;
+					lights[x+1][y] = lights[x+1][y]==1?0:1;
+				}
+				else if (x==1 and y==2) {
+					lights[x-1][y] = lights[x-1][y]==1?0:1;
+					lights[x+1][y] = lights[x+1][y]==1?0:1;
+					lights[x][y-1] = lights[x][y-1]==1?0:1;
+				}
+				else if (x==2 and y==1) {
+					lights[x-1][y] = lights[x-1][y]==1?0:1;
+					lights[x][y-1] = lights[x][y-1]==1?0:1;
+					lights[x][y+1] = lights[x][y+1]==1?0:1;
+				}
+				else {
+					lights[x+1][y] = lights[x+1][y]==1?0:1;
+					lights[x][y+1] = lights[x][y+1]==1?0:1;
+					lights[x-1][y] = lights[x-1][y]==1?0:1;
+					lights[x][y-1] = lights[x][y-1]==1?0:1;
+				}
+			}
+		}
+	}	
+	for (int x=0; x<3; x++) {
+		for (int y=0; y<3; y++) {
+			cout << lights[x][y];
+		}
+		cout << "\n";
+	}
+	return 0;
+}
