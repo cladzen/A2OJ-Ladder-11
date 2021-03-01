@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	int count = 0;
+	int n;
+	cin >> n;
+	string s;
+	cin >> s;
+	int localCount = 0;
+	char cur = s[0];
+	for (char c: s) {
+		if (c!=cur) {
+			cur = c;
+			count += (localCount-1);
+			localCount = 1;
+		}
+		else {
+			localCount++;
+		}
+	}
+	count += (localCount-1);
+	cout << count << "\n";
+	return 0;
+}
