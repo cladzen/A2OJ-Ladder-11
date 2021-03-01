@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	int n;
+	cin >> n;
+	tuple<int, int, int> resultant {0, 0, 0};
+	for (int i=0; i<n; i++) {
+		int x, y, z;
+		cin >> x >> y >> z;
+		get<0>(resultant) += x;
+		get<1>(resultant) += y;
+		get<2>(resultant) += z;	
+	}
+	if (get<0>(resultant)==0 and get<1>(resultant)==0 and get<2>(resultant)==0) {
+		cout << "YES" << "\n";
+	}
+	else {
+		cout << "NO" << "\n";
+	}
+	return 0;
+}
