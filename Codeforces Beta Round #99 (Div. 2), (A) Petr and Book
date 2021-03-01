@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int n;
+	cin >> n;
+	vector<int> week;
+	for (int i=0; i<7; i++) {
+		int temp;
+		cin >> temp;
+		week.push_back(temp);
+	}
+	int temp = n;
+	int count = 0;
+	while (temp>0) {
+		temp-=week[count%7];
+		count++;
+	}
+	if (count%7==0) {
+		cout << 7 << "\n";
+	}
+	else cout << (count%7) << "\n";
+	return 0;
+}
