@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	string a, b, exor = "";
+	cin >> a >> b;
+	int n = a.size();
+	for (int i=0; i<n; i++) {
+		if (a[i]==b[i]) {
+			exor += '0';
+		}
+		else {
+			exor += '1';
+		}
+	}
+	cout << exor << "\n";
+	return 0;
+}
