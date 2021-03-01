@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	string exp;
+	cin >> exp;
+	int n = exp.size();
+	exp += '+';
+	string temp = "";
+	vector<int> operands;
+	for (char c : exp) {
+		if (c=='+') {
+			operands.push_back(stoi(temp));
+			temp = "";
+		}
+		else {
+			temp += c;
+		}
+	}
+	sort(operands.begin(), operands.end());
+	string result = "";
+	for (int num: operands) {
+		result += to_string(num);
+		if (result.size()!=n) {
+			result += '+';
+		}
+	}
+	cout << result << "\n";
+	return 0;
+}
