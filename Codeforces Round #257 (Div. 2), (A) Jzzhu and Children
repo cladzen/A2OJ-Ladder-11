@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	int n, m;
+	deque<pair<int, int>> q;
+	cin >> n >> m;
+	for (int i=1; i<=n; i++) {
+		int temp;
+		cin >> temp;
+		q.push_back(make_pair(i, temp));
+	}
+	int lastpopped;
+	while (!q.empty()) {
+		q.begin()->second -= m;
+		int tempc = q.begin()->second;
+		int tempi = q.begin()->first;
+		if (tempc<=0) {
+			lastpopped = tempi;
+			q.pop_front();
+		}
+		else{
+			q.pop_front();
+			q.push_back(make_pair(tempi, tempc));
+		}
+	}
+	cout << lastpopped << "\n";
+	return 0;
+}
