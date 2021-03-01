@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	int k, l, m, n, d;
+	cin >> k >> l >> m >> n >> d;
+	int dragons[d+1] = {0};
+	int damage[4];
+	damage[0] = k;
+	damage[1] = l;
+	damage[2] = m;
+	damage[3] = n;
+	for (int hurt: damage) {
+		for (int i=hurt; i<=d; i+=hurt) {
+			dragons[i] = 1;
+		}
+	}
+	int count = 0;
+	for (int i=1; i<=d; i++) {
+		if (dragons[i]==1) {
+			count++;
+		}
+	}
+	cout << count << '\n';
+	return 0;
+}
