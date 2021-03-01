@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	string s;
+	cin >> s;
+	int flag = 0;
+	for (char c : s) {
+		if (c=='H' or c=='Q' or c=='9') {
+			flag = 1;
+			break;
+		}
+	}
+	if (flag==0) {
+		cout << "NO" << "\n";
+	}
+	else {
+		cout << "YES" << "\n";
+	}
+	return 0;
+}
