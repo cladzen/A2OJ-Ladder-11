@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	int n;
+	cin >> n;
+	int x = 0;
+	for (int i=0; i<n; i++) {
+		string stat;
+		cin >> stat;
+		for (char c : stat) {
+			if (c=='+') {
+				x++;
+				break;
+			}
+			else if (c=='-') {
+				x--;
+				break;
+			}
+		}
+	}
+	cout << x << "\n";
+	return 0;
+}
