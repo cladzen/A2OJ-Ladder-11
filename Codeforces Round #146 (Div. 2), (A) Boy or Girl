@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	string s;
+	cin >> s;
+	set<char> dist;
+	for (char c : s) {
+		dist.insert(c);
+	}
+	if (dist.size()%2==0) {
+		cout << "CHAT WITH HER!" << "\n";
+	}
+	else {
+		cout << "IGNORE HIM!" << "\n";
+	}
+	return 0;
+}
