@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+#define pb push_back
+using namespace std;
+
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	int n, m;
+	cin >> n >> m;
+	vector<int> price;
+	for (int i=0; i<n; i++) {
+		int temp;
+		cin >> temp;
+		price.pb(temp);
+	}
+	sort(price.begin(), price.end());
+	int bought = 0;
+	int earn = 0;
+	for (int i=0; i<n; i++) {
+		if (price[i]<=0) {
+			if (bought+1<=m) {
+				bought++;
+				earn += abs(price[i]);
+			}
+			else {
+				break;
+			}
+		}
+	}
+	cout << earn << "\n";
+	return 0;
+}
