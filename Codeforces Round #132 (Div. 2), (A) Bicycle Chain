@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+#define pb push_back
+using namespace std;
+
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	int n;
+	cin >> n;
+	vector<int> nteeth;
+	for (int i=0; i<n; i++) {
+		int temp;
+		cin >> temp;
+		nteeth.pb(temp);
+	}	
+	int m;
+	cin >> m;
+	vector<int> mteeth;
+	for (int i=0; i<m; i++) {
+		int temp;
+		cin >> temp;
+		mteeth.pb(temp);
+	}
+	int maxratio = 0;
+	for (int nt : nteeth) {
+		for (int mt : mteeth) {
+			if (mt%nt==0) {
+				maxratio = maxratio>=(mt/nt)?maxratio:(mt/nt);
+			}
+		}
+	}
+	int count = 0;
+	for (int nt : nteeth) {
+		for (int mt : mteeth) {
+			if (mt%nt==0) {
+				if ((mt/nt)==maxratio) {
+					count++;
+				}
+			}
+		}
+	}
+	cout << count << "\n";
+	return 0;
+}
