@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    #ifndef ONLINE_JUDGE
+        freopen("Testing//Input.txt", "r", stdin);
+        freopen("Testing//Output.txt", "w", stdout);
+    #endif
+    //code goes here
+    int k;
+    cin >> k;
+    string s;
+    cin >> s;
+    map<char, int> mp;
+    for (char c : s) {
+        mp[c]++;
+    }
+    map<char, int>::iterator it;
+    for (it=mp.begin(); it!=mp.end(); it++) {
+        if (it->second%k!=0) {
+            cout << "-1" << "\n";
+            return 0;
+        }
+    }
+    int i = k;
+    while (i--) {
+        for (it=mp.begin(); it!=mp.end(); it++) {
+            for (int j=1; j<=it->second/k; j++) {
+                cout << it->first;
+            }
+        }
+    }
+    cout << "\n";
+    return 0;
+}
