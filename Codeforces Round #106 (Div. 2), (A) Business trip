@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+#define pb push_back
+using namespace std;
+
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	int k;
+	cin >> k;
+	vector<int> height;
+	for (int i=0; i<12; i++) {
+		int temp;
+		cin >> temp;
+		height.pb(temp);
+	}
+	int count = 0;
+	sort(height.begin(), height.end(), greater<int>());
+	for (int i=0; i<12; i++) {
+		if (k<=0) {
+			break;
+		}
+		k -= height[i];
+		count++;
+	}
+	if (k>0) {
+		cout << "-1" << "\n";
+		return 0;
+	}
+	cout << count << "\n";
+	return 0;
+}
