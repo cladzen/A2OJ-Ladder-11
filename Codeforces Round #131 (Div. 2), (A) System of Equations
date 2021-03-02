@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+#define pb push_back
+using namespace std;
+
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	#ifndef ONLINE_JUDGE
+		freopen("Input.txt", "r", stdin);
+		freopen("Output.txt", "w", stdout);
+	#endif
+	//code goes here
+	int n, m;
+	cin >> n >> m;
+	int count = 0;
+	for (int i=0; i<=31; i++) {
+		for (int j=0; j<=31; j++) {	
+			if (i*i+j==n and i+j*j==m) {
+				count++;
+			}
+		}
+	}
+	cout << count << "\n";
+	return 0;
+}
